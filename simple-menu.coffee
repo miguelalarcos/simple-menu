@@ -1,10 +1,3 @@
-Template.menu.helpers
-  color: -> Please.make_color()[0]
-  isPhone: ->
-    if Meteor.Device.isPhone()
-      'is-phone'
-    else
-      ''
 Template.menu.events
   'click .close': (e, t) ->
     $('.menu.active').removeClass('active')
