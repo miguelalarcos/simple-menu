@@ -1,6 +1,6 @@
 Package.describe({
   name: 'miguelalarcos:simple-menu',
-  version: '0.1.0',
+  version: '0.1.1',
   // Brief, one-line summary of the package.
   summary: 'A very very simple menu for Meteor.',
   // URL to the Git repository containing the source code for this package.
@@ -14,11 +14,11 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
   api.use('coffeescript');
   api.use('stylus');
-  api.use('mquandalle:jade');
+  api.use('mquandalle:jade@0.4.3');
   //api.use('tracker');
   api.use('jquery');
   api.use('templating');
-  api.use('yasaricli:nanoscroller');
+  api.use('yasaricli:nanoscroller@0.0.1');
   //api.use('underscore');
   //api.use('reactive-var');
   api.addFiles('simple-menu.jade', 'client');
