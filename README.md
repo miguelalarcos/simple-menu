@@ -11,7 +11,7 @@ head
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
 body(style='background-color: rgb(135, 191, 114)')
-    +smenu
+    +smenu(menu='menu')
     h1
         i.show.ion-navicon-round
 
@@ -57,9 +57,6 @@ template(name='third')
 ```
                 
 ```coffee
-Template.smenu.helpers
-  template: -> 'menu'
-
 Template.menu.helpers
   isPhone: ->
     if Meteor.Device.isPhone()
@@ -75,9 +72,6 @@ Template.body.events
 ```stylus
 .nano
   height 500px 
-
-.menu div.item:hover
-  background-color rgb(191, 114, 171)
 
 i.show
   cursor pointer
