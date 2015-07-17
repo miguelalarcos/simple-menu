@@ -9,54 +9,76 @@ Here you can see an example:
 ```jade
 head
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    
+
 body(style='background-color: rgb(135, 191, 114)')
-    //if Session 'show'
-    +menu
+    +smenu
     h1
         i.show.ion-navicon-round
-        
-template(name='menu2')
-    +first color=color isphone=isPhone
-    +second color=color isphone=isPhone
-    +third color=color isphone=isPhone
-    
+
+template(name='menu')
+    +first isphone=isPhone
+    +second isphone=isPhone
+    +third isphone=isPhone
+
 template(name='first')
-    .menu.first(class=isphone style='{background-color: #{color}')
+    .menu.first(class=isphone)
         .nano
             .nano-content
                 h2 header1
                     i.close.ion-close
-                div
+                div.item
                     a(href='/amarillo/') amarillo
-                div(next='second') rojo >
-                    
+                div.item(next='second') rojo >
+
 template(name='second')
-    .menu.second(class=isphone style='{background-color: #{color}')
+    .menu.second(class=isphone)
         .nano
             .nano-content
                 h2 header2
                     i.close.ion-close
-                div(next='first')
+                div.item(next='first')
                     | &lt; back
-                div
+                div.item
                     a(href='/casa/') casa
-                div(next='third') coche >
-                    
+                //div.item(next='third') coche >
+                button.item(next='third') coche >
+
 template(name='third')
-    .menu.third(class=isphone style='{background-color: #{color}')
+    .menu.third(class=isphone)
         .nano
             .nano-content
                 h2 header 2b
                     i.close.ion-close
-                div(next='second')
+                div.item(next='second')
                     | &lt; back
-                div
+                div.item
                     a(href='/coche/playa/') playa
-                div(next='first') montaña >
+                div.item(next='first') montaña >
 ```
                 
 ```coffee
+Template.smenu.helpers
+  template: -> 'menu'
+
 Template.menu.helpers
-  template: -> 'menu2'                
+  isPhone: ->
+    if Meteor.Device.isPhone()
+      'is-phone'
+    else
+      ''
+Template.body.events
+  'click .show': (e,t) ->
+    $('.menu.first').addClass('active')
+               
+```
+
+```stylus
+.nano
+  height 500px 
+
+.menu div.item:hover
+  background-color rgb(191, 114, 171)
+
+i.show
+  cursor pointer
 ```

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'miguelalarcos:simple-menu',
-  version: '0.1.2',
+  version: '0.1.3',
   // Brief, one-line summary of the package.
   summary: 'A very very simple menu for Meteor.',
   // URL to the Git repository containing the source code for this package.

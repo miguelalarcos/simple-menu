@@ -1,15 +1,11 @@
-Template.menu.events
+Template.smenu.events
   'click .close': (e, t) ->
     $('.menu.active').removeClass('active')
-  'click .menu div': (e,t) ->
+  'click .menu .item': (e,t) ->
     next = $(e.target).attr('next')
     if next
       $('.menu.active').removeClass('active')
       $('.menu.'+next).addClass('active')
 
-Template.body.events
-  'click .show': (e,t) ->
-    $('.menu.first').addClass('active')
-
-Template.menu.onRendered ->
+Template.smenu.onRendered ->
   $(this.findAll('.nano')).nanoScroller(scroll: 'top')
